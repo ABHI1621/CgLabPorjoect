@@ -1,33 +1,7 @@
 #include<GL/glut.h>
 #include <math.h>
+#include"var.h"
 #define PI 3.1415926535897932384626433832795
-static int mercuryRadius = 200;
-static int venusRadius = mercuryRadius + 150;
-static int earthRadius = venusRadius + 150;
-static int marsRadius = earthRadius + 150;
-static int jupiterRadius = marsRadius + 200;
-static int saturnRadius = jupiterRadius + 200;
-static int uranusRadius = saturnRadius + 150;
-static int neptuneRadius = uranusRadius + 150;
-
-static float mercury = 360.0 / 87.97;
-static float venus = 360.0 / 224.70;
-static float earth = 360.0 / 365.26;
-static float mars = 360.0 / 686.98;
-static float jupiter = 360.0 / 4332.82;
-static float saturn = 360.0 / 10755.7;
-static float uranus = 360.0 / 306871.5;
-static float neptune = 360.0 / 601900.3;
-
-static float mercuryAngle = 0.0f;
-static float venusAngle = 0.0f;
-static float earthAngle = 0.0f;
-static float marsAngle = 0.0f;
-static float jupiterAngle = 0.0f;
-static float saturnAngle = 0.0f;
-static float uranusAngle = 0.0f;
-static float neptuneAngle = 0.0f;
-
 
 float eyeX = 0.0f;
 float eyeY = 800.0f;
@@ -295,30 +269,6 @@ void mouse(int button, int state, int x, int y)
     }
 }
 
-void keyboard(unsigned char key, int xx, int yy) {
-    switch (key) {
-    case 27:
-        exit(0);
-        break;
-
-    }
-}
-
-void keyboardSpecial(int key, int xx, int yy)
-{
-    switch (key) {
-    case GLUT_KEY_UP:
-        eyeY -= 10.0f;
-        eyeZ -= 10.0f;
-        break;
-    case GLUT_KEY_DOWN:
-        eyeY += 10.0f;
-        eyeZ += 10.0f;
-        break;
-    }
-}
-
-
 void init(void) {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     setupMaterials();
@@ -343,8 +293,6 @@ int main(int argc, char * argv[]) {
     glutDisplayFunc(renderScene);
     glutReshapeFunc(changeSize);
     glutMouseFunc(mouse);
-    glutKeyboardFunc(keyboard);
-    glutSpecialFunc(keyboardSpecial);
     glutMainLoop();
     return 0;
 }
