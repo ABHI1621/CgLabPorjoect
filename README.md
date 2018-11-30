@@ -1,2 +1,3 @@
 # CgLabPorjoect
-Solar Syste,
+
+> Solar System using OpenGL
